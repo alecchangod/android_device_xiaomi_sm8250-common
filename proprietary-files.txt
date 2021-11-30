@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 # Unpinned blobs from munch-user 12 RKQ1.200826.002 V13.0.5.0.SLMMIXM release-keys
 # lmi: lmi-user 11 RKQ1.200826.002 V12.5.3.0.RJKMIXM release-keys
+=======
+# All unpinned blobs below are extracted from monet 11 RKQ1.200826.002 V12.5.1.0.RJIMIXM release-keys
+>>>>>>> 35aa845 (sm8250 > sm7250)
 
 # ADSP
 vendor/bin/adsprpcd
@@ -220,7 +224,6 @@ vendor/lib64/libqisl.so
 vendor/lib64/librpmb.so
 vendor/lib64/libsecureui.so
 vendor/lib64/libsecureui_svcsock.so
-vendor/lib64/libspl.so
 vendor/lib64/libssd.so
 vendor/lib64/libtzdrmgenprov.so
 vendor/lib64/vendor.qti.hardware.qseecom@1.0.so
@@ -299,6 +302,12 @@ vendor/lib64/libllvm-glnext.so
 vendor/lib64/libllvm-qcom.so
 
 # Graphics (Adreno firmware)
+vendor/firmware/a620_zap.b00
+vendor/firmware/a620_zap.b01
+vendor/firmware/a620_zap.b02
+vendor/firmware/a620_zap.elf
+vendor/firmware/a620_zap.mdt
+vendor/firmware/a630_sqe.fw
 vendor/firmware/a650_gmu.bin
 vendor/firmware/a650_sqe.fw
 vendor/firmware/a650_zap.b00
@@ -426,6 +435,16 @@ vendor/lib64/vendor.qti.ims.rcsconfig@2.1.so
 vendor/lib64/vendor.qti.imsrtpservice@3.0-service-Impl.so
 vendor/lib64/vendor.qti.imsrtpservice@3.0.so
 
+# IPA firmware
+vendor/etc/init/ipa_fws.rc
+vendor/firmware/ipa_fws.b00
+vendor/firmware/ipa_fws.b01
+vendor/firmware/ipa_fws.b02
+vendor/firmware/ipa_fws.b03
+vendor/firmware/ipa_fws.b04
+vendor/firmware/ipa_fws.elf
+vendor/firmware/ipa_fws.mdt
+
 # IRQ balance
 vendor/bin/msm_irqbalance
 vendor/etc/msm_irqbalance.conf
@@ -440,7 +459,7 @@ vendor/lib64/libqtikeymaster4.so
 vendor/lib64/libspcom.so
 
 # Listen
-vendor/lib/hw/sound_trigger.primary.kona.so
+vendor/lib/hw/sound_trigger.primary.lito.so
 vendor/lib/libadpcmdec.so
 vendor/lib/libcapiv2svacnn.so
 vendor/lib/libcapiv2svarnn.so
@@ -500,54 +519,62 @@ vendor/lib64/unnhal-acc-common.so
 vendor/lib64/unnhal-acc-hta.so
 vendor/lib64/unnhal-acc-hvx.so
 
+# NFC
+vendor/etc/libnfc-nci.conf
+vendor/etc/libnfc-nxp.conf
+vendor/etc/libnfc-nxp_RF.conf
+vendor/etc/libnfc-nxp-pnscr.conf
+vendor/lib/libsn100u_fw.so
+vendor/lib64/nfc_nci.nqx.default.hw.so
+
 # NVRAM
 vendor/bin/nv_mac
 
-# OMX
-vendor/lib/libAlacSwDec.so
-vendor/lib/libApeSwDec.so
-vendor/lib/libFlacSwDec.so
-vendor/lib/libMpeg4SwEncoder.so
-vendor/lib/libOmxAacDec.so
-vendor/lib/libOmxAlacDec.so
-vendor/lib/libOmxAlacDecSw.so
-vendor/lib/libOmxAmrDec.so
-vendor/lib/libOmxAmrwbplusDec.so
-vendor/lib/libOmxApeDec.so
-vendor/lib/libOmxApeDecSw.so
-vendor/lib/libOmxDsdDec.so
-vendor/lib/libOmxEvrcDec.so
-vendor/lib/libOmxG711Dec.so
-vendor/lib/libOmxMpeghDecSw.so
-vendor/lib/libOmxMpeghEncSw.so
-vendor/lib/libOmxQcelp13Dec.so
-vendor/lib/libOmxSwVdec.so
-vendor/lib/libOmxSwVencMpeg4.so
-vendor/lib/libOmxVideoDSMode.so
-vendor/lib/libOmxVpp.so
-vendor/lib/libOmxWmaDec.so
-vendor/lib/libdsd2pcm.so
-vendor/lib/libswvdec.so
-vendor/lib64/libAlacSwDec.so
-vendor/lib64/libApeSwDec.so
-vendor/lib64/libFlacSwDec.so
-vendor/lib64/libMpeg4SwEncoder.so
-vendor/lib64/libOmxAacDec.so
-vendor/lib64/libOmxAlacDec.so
-vendor/lib64/libOmxAlacDecSw.so
-vendor/lib64/libOmxAmrDec.so
-vendor/lib64/libOmxAmrwbplusDec.so
-vendor/lib64/libOmxApeDec.so
-vendor/lib64/libOmxApeDecSw.so
-vendor/lib64/libOmxEvrcDec.so
-vendor/lib64/libOmxG711Dec.so
-vendor/lib64/libOmxMpeghEncSw.so
-vendor/lib64/libOmxQcelp13Dec.so
-vendor/lib64/libOmxSwVdec.so
-vendor/lib64/libOmxSwVencMpeg4.so
-vendor/lib64/libOmxVpp.so
-vendor/lib64/libOmxWmaDec.so
-vendor/lib64/libswvdec.so
+## OMX
+#vendor/lib/libAlacSwDec.so
+#vendor/lib/libApeSwDec.so
+#vendor/lib/libFlacSwDec.so
+#vendor/lib/libMpeg4SwEncoder.so
+#vendor/lib/libOmxAacDec.so
+#vendor/lib/libOmxAlacDec.so
+#vendor/lib/libOmxAlacDecSw.so
+#vendor/lib/libOmxAmrDec.so
+#vendor/lib/libOmxAmrwbplusDec.so
+#vendor/lib/libOmxApeDec.so
+#vendor/lib/libOmxApeDecSw.so
+#vendor/lib/libOmxDsdDec.so
+#vendor/lib/libOmxEvrcDec.so
+#vendor/lib/libOmxG711Dec.so
+#vendor/lib/libOmxMpeghDecSw.so
+#vendor/lib/libOmxMpeghEncSw.so
+#vendor/lib/libOmxQcelp13Dec.so
+#vendor/lib/libOmxSwVdec.so
+#vendor/lib/libOmxSwVencMpeg4.so
+#vendor/lib/libOmxVideoDSMode.so
+#vendor/lib/libOmxVpp.so
+#vendor/lib/libOmxWmaDec.so
+#vendor/lib/libdsd2pcm.so
+#vendor/lib/libswvdec.so
+#vendor/lib64/libAlacSwDec.so
+#vendor/lib64/libApeSwDec.so
+#vendor/lib64/libFlacSwDec.so
+#vendor/lib64/libMpeg4SwEncoder.so
+#vendor/lib64/libOmxAacDec.so
+#vendor/lib64/libOmxAlacDec.so
+#vendor/lib64/libOmxAlacDecSw.so
+#vendor/lib64/libOmxAmrDec.so
+#vendor/lib64/libOmxAmrwbplusDec.so
+#vendor/lib64/libOmxApeDec.so
+#vendor/lib64/libOmxApeDecSw.so
+#vendor/lib64/libOmxEvrcDec.so
+#vendor/lib64/libOmxG711Dec.so
+#vendor/lib64/libOmxMpeghEncSw.so
+#vendor/lib64/libOmxQcelp13Dec.so
+#vendor/lib64/libOmxSwVdec.so
+#vendor/lib64/libOmxSwVencMpeg4.so
+#vendor/lib64/libOmxVpp.so
+#vendor/lib64/libOmxWmaDec.so
+#vendor/lib64/libswvdec.so
 
 # Peripheral manager
 vendor/bin/pm-proxy
@@ -623,7 +650,6 @@ vendor/bin/hw/qcrild
 vendor/bin/ATFWD-daemon
 vendor/bin/adpl
 vendor/bin/ks
-vendor/bin/mdm_helper
 vendor/bin/netmgrd
 vendor/bin/pd-mapper
 vendor/bin/port-bridge
@@ -648,12 +674,15 @@ vendor/etc/init/vendor.qti.tftp.rc
 vendor/etc/seccomp_policy/atfwd@2.0.policy
 vendor/etc/ssg/ta_config.json
 vendor/etc/ssg/tz_whitelist.json
+vendor/lib/vendor.qti.hardware.fm@1.0.so
+vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so
+vendor/lib64/vendor.qti.hardware.fm@1.0.so
+vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib64/deviceInfoServiceModule.so
 vendor/lib64/libconfigdb.so
 vendor/lib64/libhydra_common.so
 vendor/lib64/liblqe.so
 vendor/lib64/libmdmdetect.so
-vendor/lib64/libmdmimgload.so
 vendor/lib64/libmodemapi.so
 vendor/lib64/libnetmgr.so
 vendor/lib64/libnetmgr_common.so
@@ -711,11 +740,6 @@ vendor/radio/qcril_database/qcril.db
 vendor/etc/seccomp_policy/mediacodec.policy
 
 # Secure element
-vendor/bin/hw/vendor.qti.secure_element@1.2-service
-vendor/etc/init/vendor.qti.secure_element@1.2-service.rc
-vendor/lib64/android.hardware.secure_element@1.0-impl.so
-vendor/lib64/jcos_nq_client.so
-vendor/lib64/ls_nq_client.so
 vendor/lib64/se_nq_extn_client.so
 
 # Snapdragon Computer Vision Engine

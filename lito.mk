@@ -105,7 +105,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     audio.bluetooth.default \
-    audio.primary.kona \
+    audio.primary.lito \
     audio.r_submix.default \
     audio.usbv2.default \
 
@@ -184,7 +184,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
-    memtrack.kona
+    memtrack.lito
 
 PRODUCT_PACKAGES += \
     libdisplayconfig.qti \
@@ -489,4 +489,4 @@ PRODUCT_BOOT_JARS += \
     WfdCommon
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/xiaomi/sm8250-common/sm8250-common-vendor.mk)
+$(call inherit-product, vendor/xiaomi/sm7250-common/sm7250-common-vendor.mk)
