@@ -94,7 +94,7 @@ TARGET_INIT_VENDOR_LIB ?= //$(COMMON_PATH):init_xiaomi_kona
 TARGET_RECOVERY_DEVICE_MODULES ?= init_xiaomi_kona
 
 # FM
-BOARD_HAVE_QCOM_FM := true
+#BOARD_HAVE_QCOM_FM := true
 
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 2
@@ -165,8 +165,8 @@ TARGET_BOARD_PLATFORM := lito
 TARGET_TAP_TO_WAKE_NODE := "/sys/touchpanel/double_tap"
 
 # Properties
-TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
-TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
+#TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
+#TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
 TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
 
 # Recovery
