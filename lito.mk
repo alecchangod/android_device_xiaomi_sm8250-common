@@ -252,8 +252,8 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor
 
 # GMS Permissions
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/permissions/privapp-permissions-gms.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp.permissions-gms.xml
+# PRODUCT_COPY_FILES += \
+#     $(LOCAL_PATH)/configs/permissions/privapp-permissions-gms.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp.permissions-gms.xml
 
 # GNSS
 PRODUCT_PACKAGES += \
@@ -381,7 +381,7 @@ PRODUCT_PACKAGES += \
     libOmxAmrEnc \
     libOmxG711Enc \
     libOmxQcelp13Enc \
-    libc2dcolorconvert
+    libc2dcolorconvert \
     libstagefrighthw
 
 # Overlays
@@ -407,8 +407,8 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
     hardware/google/pixel
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+# PRODUCT_COPY_FILES += \
+#     $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
 # Public libraries
 PRODUCT_COPY_FILES += \
@@ -416,7 +416,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
 # Properties
--include $(LOCAL_PATH)/properties.mk
+# -include $(LOCAL_PATH)/properties.mk
 
 # QMI
 PRODUCT_PACKAGES += \
@@ -461,10 +461,10 @@ PRODUCT_PACKAGES += \
     init.xiaomi.rc \
     ueventd.qcom.rc
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.default:$(TARGET_COPY_OUT_RAMDISK)/fstab.default \
-    $(LOCAL_PATH)/rootdir/etc/fstab.emmc:$(TARGET_COPY_OUT_RAMDISK)/fstab.emmc \
-    $(LOCAL_PATH)/rootdir/etc/init.recovery.qcom.rc:recovery/root/init.recovery.qcom.rc
+# PRODUCT_COPY_FILES += \
+#     $(LOCAL_PATH)/rootdir/etc/fstab.default:$(TARGET_COPY_OUT_RAMDISK)/fstab.default \
+#     $(LOCAL_PATH)/rootdir/etc/fstab.emmc:$(TARGET_COPY_OUT_RAMDISK)/fstab.emmc \
+#     $(LOCAL_PATH)/rootdir/etc/init.recovery.qcom.rc:recovery/root/init.recovery.qcom.rc
 
 # Sensors
 PRODUCT_PACKAGES += \
