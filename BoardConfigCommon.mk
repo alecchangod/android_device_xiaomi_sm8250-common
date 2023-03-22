@@ -94,7 +94,7 @@ TARGET_INIT_VENDOR_LIB ?= //$(COMMON_PATH):init_xiaomi_kona
 TARGET_RECOVERY_DEVICE_MODULES ?= init_xiaomi_kona
 
 # FM
-#BOARD_HAVE_QCOM_FM := true
+BOARD_HAVE_QCOM_FM := true
 
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 2
