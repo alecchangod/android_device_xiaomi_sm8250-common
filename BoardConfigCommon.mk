@@ -8,24 +8,24 @@ COMMON_PATH := device/xiaomi/sm7250-common
 
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
-# # A/B
-# ifeq ($(TARGET_IS_VAB),true)
-# BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
-# BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
-# AB_OTA_UPDATER := true
+# A/B
+ifeq ($(TARGET_IS_VAB),true)
+BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
+AB_OTA_UPDATER := true
 
-# AB_OTA_PARTITIONS += \
-#     boot \
-#     dtbo \
-#     odm \
-#     product \
-#     system \
-#     system_ext \
-#     vbmeta \
-#     vbmeta_system \
-#     vendor \
-#     vendor_boot
-# endif
+AB_OTA_PARTITIONS += \
+    boot \
+    dtbo \
+    odm \
+    product \
+    system \
+    system_ext \
+    vbmeta \
+    vbmeta_system \
+    vendor \
+    vendor_boot
+endif
 
 # APEX
 DEXPREOPT_GENERATE_APEX_IMAGE := true
@@ -175,8 +175,12 @@ TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
 TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
 
 # Recovery
+ifeq ($(TARGET_IS_VAB),true)
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab_AB.qcom
+else
 BOARD_INCLUDE_RECOVERY_DTBO := true
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.qcom
+endif
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
@@ -190,7 +194,11 @@ ENABLE_VENDOR_RIL_SERVICE := true
 # Rootdir
 SOONG_CONFIG_NAMESPACES += XIAOMI_KONA_ROOTDIR
 SOONG_CONFIG_XIAOMI_KONA_ROOTDIR := PARTITION_SCHEME
+ifeq ($(TARGET_IS_VAB),true)
+SOONG_CONFIG_XIAOMI_KONA_ROOTDIR_PARTITION_SCHEME := vab
+else
 SOONG_CONFIG_XIAOMI_KONA_ROOTDIR_PARTITION_SCHEME := a
+endif
 
 # Security patch level
 VENDOR_SECURITY_PATCH := 2022-08-01
@@ -220,9 +228,9 @@ BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
-# ifeq ($(TARGET_IS_VAB),true)
-# BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
-# endif
+ifeq ($(TARGET_IS_VAB),true)
+BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
+endif
 
 # VINTF
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
