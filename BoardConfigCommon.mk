@@ -97,7 +97,11 @@ TARGET_RECOVERY_DEVICE_MODULES ?= init_xiaomi_kona
 BOARD_HAVE_QCOM_FM := true
 
 # Kernel
+ifeq ($(PRODUCT_VIRTUAL_AB_OTA),true)
+BOARD_BOOT_HEADER_VERSION := 3
+else
 BOARD_BOOT_HEADER_VERSION := 2
+endif
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3 swiotlb=2048 loop.max_part=7 cgroup.memory=nokmem,nosocket reboot=panic_warm
 BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
@@ -107,8 +111,11 @@ BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-#BOARD_KERNEL_SEPARATED_DTB := true
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
+ifeq (kona,$(TARGET_BOOTLOADER_BOARD_NAME))
+TARGET_KERNEL_SOURCE := kernel/xiaomi/sm8250
+TARGET_KERNEL_CONFIG := vendor/kona-perf_defconfig vendor/xiaomi/sm8250-common.config
+else
 TARGET_KERNEL_ADDITIONAL_FLAGS := HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument" LLVM_IAS=1
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_SOURCE := kernel/xiaomi/sm7250
@@ -116,19 +123,25 @@ ifeq (monet,$(PRODUCT_DEVICE))
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-gnu-
 KERNEL_SUPPORTS_LLVM_TOOLS := true
 TARGET_KERNEL_LLVM_BINUTILS := true
-TARGET_KERNEL_CLANG_VERSION := latest
-TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-latest
+TARGET_KERNEL_CLANG_VERSION := trb
+TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-trb
+endif
 endif
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
+ifeq ($(TARGET_IS_VAB),true)
+BOARD_BOOTIMAGE_PARTITION_SIZE := 201326592
+BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 100663296
+else
 BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 134217728
+endif
 BOARD_DTBOIMG_PARTITION_SIZE := 33554432
-
+ifneq ($(TARGET_IS_VAB),true)
 BOARD_CACHEIMAGE_PARTITION_SIZE := 402653184
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
-
+endif
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 114135379968
 BOARD_USES_METADATA_PARTITION := true
 # BOARD_USERDATAIMAGE_PARTITION_SIZE := 114898743296
@@ -164,7 +177,7 @@ $(foreach p, $(call to-upper, $(TREBLE_PARTITIONS)), \
 # Platform
 BOARD_VENDOR := xiaomi
 BOARD_USES_QCOM_HARDWARE := true
-TARGET_BOARD_PLATFORM := lito
+TARGET_BOARD_PLATFORM := $(TARGET_BOOTLOADER_BOARD_NAME)
 
 # Power
 TARGET_TAP_TO_WAKE_NODE := "/sys/touchpanel/double_tap"
