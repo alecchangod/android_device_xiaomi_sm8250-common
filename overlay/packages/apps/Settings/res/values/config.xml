@@ -30,7 +30,4 @@
          should be either LOW (1) or HIGH (3).
     -->
      <integer name="config_vibration_supported_intensity_levels">2</integer>
-
-     <!-- Whether Screen Off FOD Working for this Device -->
-     <bool name="config_screenOffFodWorking">true</bool>
 </resources>
