@@ -129,7 +129,7 @@ endif
 endif
 
 # MiuiCamera
-$(call inherit-product-if-exists, vendor/xiaomi/miuicamera/config.mk)
+# $(call inherit-product-if-exists, vendor/xiaomi/miuicamera/config.mk)
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
