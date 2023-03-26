@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-COMMON_PATH := device/xiaomi/sm7250-common
+COMMON_PATH := device/xiaomi/sm8250-common
 
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
@@ -281,4 +281,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit the proprietary files
-include vendor/xiaomi/sm8250-common/BoardConfigVendor.mk
+# include vendor/xiaomi/sm8250-common/BoardConfigVendor.mk
