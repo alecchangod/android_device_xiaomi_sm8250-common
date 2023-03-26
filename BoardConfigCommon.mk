@@ -180,7 +180,11 @@ $(foreach p, $(call to-upper, $(TREBLE_PARTITIONS)), \
 # Platform
 BOARD_VENDOR := xiaomi
 BOARD_USES_QCOM_HARDWARE := true
-TARGET_BOARD_PLATFORM := $(TARGET_BOOTLOADER_BOARD_NAME)
+ifeq (kona,$(TARGET_BOOTLOADER_BOARD_NAME))
+TARGET_BOARD_PLATFORM := kona
+else
+TARGET_BOARD_PLATFORM := lito
+endif
 
 # Power
 TARGET_TAP_TO_WAKE_NODE := "/sys/touchpanel/double_tap"
