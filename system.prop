@@ -1,6 +1,5 @@
 # Camera
 camera.disable_zsl_mode=true
-persist.vendor.camera.logInfoMask=false
 persist.vendor.camera.perflock.enable=0
 persist.vendor.camera.privapp.list=com.android.camera
 ro.miui.notch=1
