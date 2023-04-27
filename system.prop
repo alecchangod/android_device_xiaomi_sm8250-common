@@ -4,7 +4,6 @@ persist.vendor.camera.logInfoMask=false
 persist.vendor.camera.perflock.enable=0
 persist.vendor.camera.privapp.list=com.android.camera
 ro.miui.notch=1
-log.tag.CHIUSECASE=ERROR
 
 # Charger
 ro.charger.disable_init_blank=true
